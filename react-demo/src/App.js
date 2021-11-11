@@ -23,9 +23,13 @@ const productList = [
   }
 ]
 
+const handleDelete = ( id )=>{
+  console.log('id:'+id)
+}
+
 const renderList = () => {
   return productList.map((item, index) => {
-   return  <ListItem key={index} data={item}></ListItem>
+   return  <ListItem key={index} data={item} onDelete={handleDelete}></ListItem>
   })
 }
 

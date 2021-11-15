@@ -6,40 +6,51 @@ import './listItem.css'
 // 在类组件中绑定this有三种方法，在jsx中用bind，在构造函数中用bind，和直接用箭头函数。
 class ListItem extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state={
-            count: 0
-        }
-        // 这里是演示在构造函数中使用bind绑定this, 不推荐这种方式，现在多用箭头函数。如果用此方式一定要在super之后使用bind。
-        // this.handleDecrease = this.handleDecrease.bind(this)
-    }
+    // constructor(props) {
+    //     super(props)
+    //     // this.state={
+    //     //     count: this.props.data.value  //  初始化购物车中的数量
+    //     // }
+    //     // 这里是演示在构造函数中使用bind绑定this, 不推荐这种方式，现在多用箭头函数。如果用此方式一定要在super之后使用bind。
+    //     // this.handleDecrease = this.handleDecrease.bind(this)
+    // }
 
-    doSomethingWithCount(){
-        if(this.state.count <0){
-            this.setState({
-                count:0
-            })
-        }
-    }
+    // doSomethingWithCount(){
+        // if(this.state.count <0){
+        //     this.setState({
+        //         count:0
+        //     })
+        // }
+    // }
 
-    handleIncrease =() =>{
-        console.log('加法：')
-        this.setState({
-            count: this.state.count + 1
-        })       
-    }
+    // handleIncrease =() =>{
+        // console.log('加法：')
+        // this.setState({
+        //     count: this.state.count + 1
+        // })       
+    // }
 
-    handleDecrease = (en)=>{ // 这里能捕捉到什么事件以及屏幕中的位置等信息
-        console.log('减法：', en) 
-        this.setState({
-            count:this.state.count-1
-        })
-        this.doSomethingWithCount()
-    }
+    // handleDecrease = (en)=>{ // 这里能捕捉到什么事件以及屏幕中的位置等信息
+        // console.log('减法：', en) 
+        // this.setState({
+        //     count:this.state.count-1
+        // })
+        // this.doSomethingWithCount()
+    // }
 
+    // shouldComponentUpdate(nextProps, nextState){
+    //     console.log('this.props:', this.props, 'nextProps',nextProps)
+    //     console.log('this.state:', this.state, 'nextState',nextState)
+        
+    //     if(this.state.count === nextState.count) return false
+    //     return true
 
-    render() {    
+    //     // if(this.props.id === nextProps.id) return false
+    //     // return true
+    // }
+
+    render() {
+        console.log('item is rendering......')   
         return(
             <div className="row mb-3">
                 <div className="col-6 themed-grid-col">
@@ -48,11 +59,12 @@ class ListItem extends Component {
                     </span>
                 </div>
                 <div className="col-2 themed-grid-col" >￥{this.props.data.price}</div>
-                <div className={`col-2 themed-grid-col${this.state.count ? '' : '-s'}`}>
-                    <button type="button" className="btn btn-primary" onClick={this.handleDecrease}>-</button>
-                    <span className="digital">{this.state.count}</span>
-                    <button type="button" className="btn btn-primary" onClick={this.handleIncrease}>+</button>
+                <div className={`col-2 themed-grid-col${this.props.data.count ? '' : '-s'}`}>
+                    <button type="button" className="btn btn-primary" onClick={()=>{this.props.handleDecrease(this.props.data.id)}}>-</button>
+                    <span className="digital">{this.props.data.count}</span>
+                    <button type="button" className="btn btn-primary" onClick={()=>{this.props.handleIncrease(this.props.data.id)}}>+</button>
                 </div>
+                <div className="col-1 themed-grid-col"> ￥{this.props.data.price * this.props.data.count} </div>
                 <div className="col-1 themed-grid-col" >
                     <button className="btn btn-danger" onClick={()=>{this.props.onDelete(this.props.data.id)}}>删除</button>
                 </div>

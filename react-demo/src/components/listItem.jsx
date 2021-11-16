@@ -1,4 +1,4 @@
-// 类组件  类组件中要注意this的指向问题
+// 类组件  类组件中要注意this的指向问题 （这里留作类组件示例）
 
 import React, { Component } from 'react';
 import './listItem.css'
@@ -11,42 +11,15 @@ class ListItem extends Component {
     //     // this.state={
     //     //     count: this.props.data.value  //  初始化购物车中的数量
     //     // }
-    //     // 这里是演示在构造函数中使用bind绑定this, 不推荐这种方式，现在多用箭头函数。如果用此方式一定要在super之后使用bind。
+    //     // 以下是演示在构造函数中使用bind绑定this, 不推荐这种方式，现在多用箭头函数。如果用此方式一定要在super之后使用bind。
     //     // this.handleDecrease = this.handleDecrease.bind(this)
-    // }
-
-    // doSomethingWithCount(){
-        // if(this.state.count <0){
-        //     this.setState({
-        //         count:0
-        //     })
-        // }
-    // }
-
-    // handleIncrease =() =>{
-        // console.log('加法：')
-        // this.setState({
-        //     count: this.state.count + 1
-        // })       
-    // }
-
-    // handleDecrease = (en)=>{ // 这里能捕捉到什么事件以及屏幕中的位置等信息
-        // console.log('减法：', en) 
-        // this.setState({
-        //     count:this.state.count-1
-        // })
-        // this.doSomethingWithCount()
     // }
 
     // shouldComponentUpdate(nextProps, nextState){
     //     console.log('this.props:', this.props, 'nextProps',nextProps)
-    //     console.log('this.state:', this.state, 'nextState',nextState)
-        
+    //     console.log('this.state:', this.state, 'nextState',nextState)      
     //     if(this.state.count === nextState.count) return false
     //     return true
-
-    //     // if(this.props.id === nextProps.id) return false
-    //     // return true
     // }
 
     render() {

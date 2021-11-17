@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ListPage from './components/ListPage'
 import {productsData} from './data.js'
+import ItemA from './components/hoc/ItemA';
 
 function App() {
   const [productList, setProductList] = useState(productsData)
@@ -59,6 +60,7 @@ function App() {
         handleIncrease={handleIncrease}
         handleDelete={handleDelete}
         />
+      <ItemA id={1}/>
     </>
   );
 }

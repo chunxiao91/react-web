@@ -6,7 +6,7 @@ const ItemA = (props) => {
     // 高阶函数是该业务组件的父组件，所以这里props是从高阶组件中传过来的
     return (
         <div className="container">
-            <button type="btn">tooltip将会展示这里的文字</button>
+            <button type="btn">高阶组件：tooltip展示文字</button>
             {
                 props.action.showToolTip && (
                     <span>

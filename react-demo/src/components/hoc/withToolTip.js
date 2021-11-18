@@ -1,4 +1,6 @@
-// 鼠标移入和移出的状态
+// 高阶组件HOC：higherOrderComponent
+
+// 高阶组件：实现鼠标移入和移出后的显示
 import React from 'react';
 
 const  withToolTip= (Component) => {

@@ -1,7 +1,6 @@
 // 类组件  类组件中要注意this的指向问题 （这里留作类组件示例）
 
 import React, { Component } from 'react';
-import './listItem.css'
 
 // 在类组件中绑定this有三种方法，在jsx中用bind，在构造函数中用bind，和直接用箭头函数。
 class ListItem extends Component {
